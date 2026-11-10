@@ -56,3 +56,10 @@ the string into code points or graphemes first and pass the resulting array to
 
 In all cases, if `n` is larger than the number of tokens, the result is an
 empty array.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
